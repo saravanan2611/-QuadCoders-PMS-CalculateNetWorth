@@ -1,37 +1,34 @@
 package com.portfolio.calculateeNetworth.service;
-import static org.junit.Assert.assertEquals;
+
+
+import com.portfolio.calculateeNetworth.controller.CalculateNetWorthController;
+import com.portfolio.calculateeNetworth.model.MutualFund;
+import com.portfolio.calculateeNetworth.model.StockDetails;
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.Before;
-import static org.junit.Assert.assertTrue;
+import org.mockito.Mockito;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertEquals;
 
-import com.portfolio.calculateeNetworth.controller.DailySharePriceController;
-import com.portfolio.calculateeNetworth.exception.SellServiceNotFoundException;
 public class SellServiceTest {
-	
-	SellService service;
-	DailySharePriceController control;
-	
-	@Before
-	public void beforemandatory()
-	{
-		service = new SellService();
+
+	SellService service = new SellService();
+	CalculateNetWorthController control;
+
+	@Test
+	public void testfindByStockNameNegative() {
+		StockDetails stock = new StockDetails();
+		assertEquals("StockNameNotFound", null, stock.getStockName());
 	}
+	@Test
+	public void testMutualFundByNameNegative() {
+		MutualFund mutual = new MutualFund();
+		assertEquals("StockNameNotFound", null, mutual.getMutualFundName());
+	}
+
 	//@SuppressWarnings("deprecation")
 	//@Test
 	
-	/*@Test(expected=NullPointerException.class)
-	void PackageAndDeliveryTestForIntegral() throws Exception {
-		DailySharePriceController pdc = new DailySharePriceController();
-		double actualResult=0;
-		try {
-			actualResult = pdc.getAsset(101);
-		} catch (NullPointerException e) {
-			// TODO Auto-generated catch block
-		}
-		double expectedResult = 130000.0;
-		Assertions.assertEquals(expectedResult, actualResult);
-	}
-*/
+
+
 }

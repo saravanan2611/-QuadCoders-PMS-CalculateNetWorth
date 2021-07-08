@@ -7,6 +7,7 @@ public class PortfolioTest {
 
 
 	//1
+	@Test
 	void testGetPortfolio() {
 		Portfolio portfolio=new Portfolio();
 		portfolio.setPortfolio_id(101);
@@ -15,6 +16,7 @@ public class PortfolioTest {
 	}
 	
 	//2
+	@Test
 	void testGetPortfolio1() {
 		Portfolio portfolio=new Portfolio();
 		portfolio.setPortfolio_id(102);

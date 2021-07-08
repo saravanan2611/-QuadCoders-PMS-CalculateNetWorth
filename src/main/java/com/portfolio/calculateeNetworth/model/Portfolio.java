@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 /*
  * Author: Saravanan R
  * Date: 23-06-2021
@@ -22,8 +24,10 @@ public class Portfolio {
 	@Column(columnDefinition = "BIGINT")
 	private long portfolio_id;
 	@OneToMany(mappedBy = "portfolio", fetch = FetchType.EAGER)
+	   @JsonManagedReference
 	private Set<StockDetails> stockDetails;
 	@OneToMany(mappedBy = "portfolio" , fetch = FetchType.EAGER)
+	 @JsonManagedReference
 	private Set<MutualFund> mutualFund;
 	/*@Override
 	public String toString() {
@@ -33,7 +37,6 @@ public class Portfolio {
 */
 	public Portfolio() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Portfolio(long portfolio_id, Set<StockDetails> stockDetails, Set<MutualFund> mutualFund) {

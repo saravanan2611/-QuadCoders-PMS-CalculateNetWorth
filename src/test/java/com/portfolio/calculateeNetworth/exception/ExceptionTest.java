@@ -1,8 +1,5 @@
 package com.portfolio.calculateeNetworth.exception;
 
-//import static com.iiht.StockMarket.utilTestClass.TestUtils.currentTest;
-//import static com.iiht.StockMarket.utilTestClass.TestUtils.exceptionTestFile;
-//import static com.iiht.StockMarket.utilTestClass.TestUtils.yakshaAssert;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -21,18 +18,12 @@ import com.portfolio.calculateeNetworth.service.SellService;
 
 class ExceptionTest {
 
+
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testShareNotFoundException() {
+		SellServiceNotFoundException dailyMutualFundException=new SellServiceNotFoundException("Error occured");
+		assertEquals("Error occured",dailyMutualFundException.getMessage());
 	}
 
-	@MockBean
-	private SellService sellService;
-	
-	@ExceptionHandler(SellServiceNotFoundException.class)
-	@ResponseStatus(code=HttpStatus.NOT_FOUND,reason="Invalid Portfolio_id")
-	public void portfolioNotFound(){
-		
-		
-	}
+
 }

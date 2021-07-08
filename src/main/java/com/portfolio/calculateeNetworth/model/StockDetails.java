@@ -14,6 +14,8 @@ import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.ManyToAny;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -34,7 +36,9 @@ public class StockDetails {
 	private long stockId;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "portfolio_id")
+	 @JsonBackReference
 	private Portfolio portfolio;
+	
 	@Override
 	public String toString() {
 		return "StockDetails [id=" + id + ", stockId=" + stockId + ", portfolio=" + portfolio + ", stockName="
@@ -66,7 +70,6 @@ public class StockDetails {
 	}
 	public StockDetails() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public String getStockName() {
 		return stockName;

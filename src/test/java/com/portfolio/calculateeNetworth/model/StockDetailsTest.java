@@ -2,13 +2,12 @@ package com.portfolio.calculateeNetworth.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 //Total : 10
 public class StockDetailsTest {
-	StockDetails stockdetails;
+	StockDetails stockdetails = new StockDetails();
 	
 	//1
 	@BeforeAll
@@ -17,11 +16,7 @@ public class StockDetailsTest {
 		System.out.println("Should run before all testcases");
 	}
 	
-	@Before
-	public void beforeObj()
-	{
-		stockdetails = new StockDetails();
-	}
+	
 	
 	//2
 	@Test

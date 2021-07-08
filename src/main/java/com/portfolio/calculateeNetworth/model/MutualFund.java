@@ -11,6 +11,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.Column;
 
 import lombok.AllArgsConstructor;
@@ -21,13 +23,11 @@ import lombok.ToString;
  * Author: Saravanan R
  * Date: 23-06-2021
  * Description: Model class to implement MutualFund Details*/
-@AllArgsConstructor
-@NoArgsConstructor
+
 @ToString
 @Entity
 @Table(name="mutual_funds")
 public class MutualFund {
-	
 	
 	@Id
 	@GeneratedValue(generator = "mutualfundidgenerator")
@@ -36,6 +36,7 @@ public class MutualFund {
 	@Column(name="mutual_fund_id" , columnDefinition = "BIGINT")
 	private long mutual_fund_id; 
 	@ManyToOne(fetch = FetchType.EAGER)
+	 @JsonBackReference
 	@JoinColumn(name = "portfolio_id")
 	private Portfolio portfolio;
 	@Column(name="mutual_fund_name")
